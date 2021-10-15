@@ -1,0 +1,13 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+            java.io.File(".").listFiles().forEach {it -> println(it.getName().toString())}
+        shell: kotlin -howtorun .main.kts {0}
